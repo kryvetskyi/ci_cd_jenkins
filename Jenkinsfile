@@ -20,7 +20,7 @@ pipeline {
         stage("Run tests") {
             steps {
                 script {
-                    sh "pip install -r requirements.txt; python3 -m pytest tests"
+                    sh "pip3 install -r requirements.txt; python3 -m pytest tests"
                 }
             }
             post {
