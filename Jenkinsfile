@@ -1,7 +1,6 @@
 pipeline {
 
     environment {
-        environment {
         PATH = "$PATH:/usr/bin"
         imageName = "anatollucky/falcon-demo-app:${env.BUILD_ID}"
         customImage = ""
