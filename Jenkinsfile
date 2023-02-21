@@ -1,10 +1,12 @@
 pipeline {
+
     environment {
         imageName = "anatollucky/falcon-demo-app:${env.BUILD_ID}"
         customImage = ""
     }
     
     agent any
+
     stages {
         
         stage("Start container for Testing") {
@@ -14,24 +16,29 @@ pipeline {
                 }
             }
         }
+
         stage("Run tests") {
             steps {
                 script {
                     sh "pip3 install -r requirements.txt; python3 -m pytest tests"
                 }
             }
+        }
             post {
+
                 success {
                     script {
                         sh "docker-compose down"
                     }
                 }
+        
                 failure {
                     script {
                         sh "docker-compose down"
                     }
                 }
             }
+
         stage("Build image") {
             steps {
                 script { 
@@ -39,6 +46,7 @@ pipeline {
                 }
             }
         }
+        
         stage("Push to registry") {
             when {
                 branch "main"
