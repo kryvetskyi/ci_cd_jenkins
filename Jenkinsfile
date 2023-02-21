@@ -52,7 +52,7 @@ pipeline {
             }
             steps {
                 script {
-                    dcoker.withRegistry('', 'dockerhub-cred-anatollucky')
+                    docker.withRegistry('', 'dockerhub-cred-anatollucky')
                     customImage.push()
                 }
             }
