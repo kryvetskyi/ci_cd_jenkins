@@ -52,8 +52,9 @@ pipeline {
             }
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'dockerhub-cred-anatollucky', url: 'https://index.docker.io/v1/')
-                    customImage.push()
+                    withDockerRegistry(credentialsId: 'dockerhub-cred-anatollucky', url: 'https://index.docker.io/v1/') {
+                        sh 'docker push $customImage'
+                    }
                 }
             }
         }
