@@ -1,7 +1,6 @@
 pipeline {
 
     environment {
-        PATH = "$PATH:/usr/bin"
         imageName = "anatollucky/falcon-demo-app:${env.BUILD_ID}"
         customImage = ""
     }
@@ -19,7 +18,7 @@ pipeline {
                     sh 'docker ps -a'
                     sh 'ls -la'
                     sh 'pwd'
-                    sh 'docker compose version'
+                    sh 'docker-compose version'
                     sh 'docker-compose rm -f; docker-compose up -d images'
                 }
             }
