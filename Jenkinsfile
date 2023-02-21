@@ -13,12 +13,13 @@ pipeline {
         stage("Start container for Testing") {
             steps {
                 script {
+                    sh "echo $PATH"
                     sh 'whoami'
                     sh 'docker --version'
                     sh 'docker ps -a'
                     sh 'ls -la'
                     sh 'pwd'
-                    sh 'docker-compose --version'
+                    sh 'docker compose version'
                     sh 'docker-compose rm -f; docker-compose up -d images'
                 }
             }
