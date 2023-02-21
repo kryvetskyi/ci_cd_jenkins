@@ -12,13 +12,6 @@ pipeline {
         stage("Start container for Testing") {
             steps {
                 script {
-                    sh "echo $PATH"
-                    sh 'whoami'
-                    sh 'docker --version'
-                    sh 'docker ps -a'
-                    sh 'ls -la'
-                    sh 'pwd'
-                    sh 'docker-compose version'
                     sh 'docker-compose rm -f; docker-compose up -d images'
                 }
             }
@@ -27,7 +20,7 @@ pipeline {
         stage("Run tests") {
             steps {
                 script {
-                    sh "pip3 install -r requirements.txt; python3 -m pytest tests"
+                    sh "pip install -r requirements.txt; python3 -m pytest tests"
                 }
             }
             post {
