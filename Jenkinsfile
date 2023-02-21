@@ -23,7 +23,6 @@ pipeline {
                     sh "pip3 install -r requirements.txt; python3 -m pytest tests"
                 }
             }
-        }
             post {
 
                 success {
@@ -38,7 +37,7 @@ pipeline {
                     }
                 }
             }
-
+        }
         stage("Build image") {
             steps {
                 script { 
