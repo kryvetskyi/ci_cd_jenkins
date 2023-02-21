@@ -12,6 +12,7 @@ pipeline {
         stage("Start container for Testing") {
             steps {
                 script {
+                    sh 'docker --version'
                     sh 'ls -la'
                     sh 'pwd'
                     sh 'docker-compose rm -f; docker-compose up -d images'
