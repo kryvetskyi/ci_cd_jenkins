@@ -52,7 +52,7 @@ pipeline {
             }
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'dockerhub-cred-anatollucky', url: 'https://index.docker.io/v1/') {
+                    withDockerRegistry(credentialsId: 'dockerhub-token', url: 'https://index.docker.io/v1/') {
                         sh 'docker push $customImage'
                     }
                 }
