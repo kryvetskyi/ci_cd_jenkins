@@ -14,9 +14,10 @@ pipeline {
                 script {
                     sh 'whoami'
                     sh 'docker --version'
-                    sh 'docker-compose --version'
+                    sh 'docker ps -a'
                     sh 'ls -la'
                     sh 'pwd'
+                    sh 'docker-compose --version'
                     sh 'docker-compose rm -f; docker-compose up -d images'
                 }
             }
