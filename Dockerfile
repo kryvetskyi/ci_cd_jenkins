@@ -1,5 +1,5 @@
 FROM python:3
-RUN pip install --upgrade pip
+RUN pip3 install --upgrade pip
 WORKDIR /app
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
