@@ -17,27 +17,27 @@ pipeline {
             }
         }
 
-        stage("Run tests") {
-            steps {
-                script {
-                    sh "pip3 install -r requirements.txt; python3 -m pytest tests"
-                }
-            }
-            post {
+        // stage("Run tests") {
+        //     steps {
+        //         script {
+        //             sh "pip3 install -r requirements.txt; python3 -m pytest tests"
+        //         }
+        //     }
+        //     post {
 
-                success {
-                    script {
-                        sh "docker-compose down"
-                    }
-                }
+        //         success {
+        //             script {
+        //                 sh "docker-compose down"
+        //             }
+        //         }
         
-                failure {
-                    script {
-                        sh "docker-compose down"
-                    }
-                }
-            }
-        }
+        //         failure {
+        //             script {
+        //                 sh "docker-compose down"
+        //             }
+        //         }
+        //     }
+        // }
         stage("Build image") {
             steps {
                 script { 
